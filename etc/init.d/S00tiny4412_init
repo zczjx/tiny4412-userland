@@ -1,0 +1,23 @@
+#! /bin/sh
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:
+runlevel=S
+prevlevel=N
+umask 022
+export PATH runlevel prevlevel
+
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+/sbin/mdev -s
+/bin/hotplug
+
+/bin/usbhotplugd
+/sbin/hwclock -s
+
+syslogd
+
+# install additional modules
+MODULE_PATH=/lib/modules/`uname -r`
+if [ ! -f ${MODULE_PATH}/modules.dep.bb ]; then
+	depmod
+fi
+
