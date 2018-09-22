@@ -8,9 +8,7 @@ export PATH runlevel prevlevel
 
 echo /sbin/mdev > /proc/sys/kernel/hotplug
 /sbin/mdev -s
-/bin/hotplug
 
-/bin/usbhotplugd
 /sbin/hwclock -s
 
 syslogd
