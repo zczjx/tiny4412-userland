@@ -15,7 +15,4 @@ syslogd
 
 # install additional modules
 MODULE_PATH=/lib/modules/`uname -r`
-if [ ! -f ${MODULE_PATH}/modules.dep.bb ]; then
-	depmod
-fi
 
