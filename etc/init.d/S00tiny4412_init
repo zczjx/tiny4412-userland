@@ -15,4 +15,6 @@ syslogd
 
 # install additional modules
 MODULE_PATH=/lib/modules/`uname -r`
+modprobe exynos_fimc_is
+modprobe ov5640
 
